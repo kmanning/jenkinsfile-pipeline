@@ -66,6 +66,7 @@ class DeployStageTest {
 
                 deployStage.decorate(decoration)
                 def closure = deployStage.pipelineConfiguration()
+                closure.delegate = new MockWorkflowScript()
                 closure()
 
                 assertThat(wasCalled, equalTo(true))

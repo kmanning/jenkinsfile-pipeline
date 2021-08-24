@@ -15,8 +15,9 @@ public class DeployStage implements Stage {
 
         def stageEnvironment = environment
         return {
-            decorations.apply() {
-                stage("deploy-${stageEnvironment}") {
+
+            stage("deploy-${stageEnvironment}") {
+                decorations.apply() {
                     sh getFullDeployCommand()
                 }
             }
